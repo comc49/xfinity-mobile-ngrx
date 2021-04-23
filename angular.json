@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "xfinity-mobile"
+  "defaultProject": "xfinity-mobile",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
