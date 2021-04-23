@@ -1,4 +1,5 @@
 import { createAction, props } from '@ngrx/store';
+import { Product } from 'src/app/models/product.model';
 
 export const loadCatalogs = createAction(
   '[Catalog] Load Catalogs'
@@ -6,7 +7,7 @@ export const loadCatalogs = createAction(
 
 export const loadCatalogsSuccess = createAction(
   '[Catalog] Load Catalogs Success',
-  props<{ data: any }>()
+  props<{ products: Product[] }>()
 );
 
 export const loadCatalogsFailure = createAction(

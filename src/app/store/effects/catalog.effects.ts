@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { loadCatalogs, loadCatalogsSuccess, loadCatalogsFailure } from './catalog.actions';
-import { CatalogService } from './catalog.service';
+import { loadCatalogs, loadCatalogsSuccess, loadCatalogsFailure } from '../actions/catalog.actions';
+import { CatalogService } from '../../pages/catalog/catalog.service';
 import { of } from 'rxjs';
 import { mergeMap, map, catchError} from 'rxjs/operators';
 
@@ -14,7 +14,7 @@ export class CatalogEffects {
       ofType(loadCatalogs.type),
       mergeMap(() => this.catalogService.getProducts()
         .pipe(
-          map(products => ({ type: loadCatalogsSuccess.type, payload: products })),
+          map(products => ({ type: loadCatalogsSuccess.type, products })),
           catchError(() => of({ type: loadCatalogsFailure.type }))
         )
       )

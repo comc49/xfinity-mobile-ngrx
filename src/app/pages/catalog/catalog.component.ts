@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { loadCatalogs } from './catalog.actions';
+import { loadCatalogs } from '../../store/actions/catalog.actions';
 
 @Component({
   selector: 'app-catalog',

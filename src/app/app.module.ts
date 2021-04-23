@@ -8,7 +8,11 @@ import { DetailsModule } from './pages/details/details.module';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { CatalogEffects } from './pages/catalog/catalog.effects';
+import { effects, reducers } from './store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment'; // Angular CLI environment
+
+
 
 
 @NgModule({
@@ -22,8 +26,12 @@ import { CatalogEffects } from './pages/catalog/catalog.effects';
     HttpClientModule,
     CatalogModule,
     DetailsModule,
-    EffectsModule.forRoot([CatalogEffects]),
-    StoreModule.forRoot({}),
+    EffectsModule.forRoot(effects),
+    StoreModule.forRoot({products: reducers.CatalogReducer}),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      logOnly: environment.production, // Restrict extension to log-only mode
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

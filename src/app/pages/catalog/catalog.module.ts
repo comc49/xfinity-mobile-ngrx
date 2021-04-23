@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CatalogRoutingModule } from './catalog-routing.module';
 import { EffectsModule } from '@ngrx/effects';
-import { CatalogEffects } from './catalog.effects';
+import { CatalogEffects } from '../../store/effects/catalog.effects';
 
 
 @NgModule({
